@@ -63,11 +63,29 @@ res.status(201).json(newBook);
 
 });
 
+//Actualizar un libro existente
+app.put('/api/books/:id', (req, res) => {
 
-app.get (`/`, (req, ress) => {
-    ress.send(`Hello Amigos!`);
+    const id = parseInt(req.params.id);
+    const { title, author } = req.body;
+
+    const book = books.find(b => b.id === id);
+
+    if (!book) {
+        return res.status(404).json({
+            message: 'No encontrado'
+        });
+    }
+
+});
+
+app.get('/', (req, res) => {
+    res.send('Hello pitti!');
 });
 
 app.listen(port, () => {
-    console.log(`Servidor corriendo em http://localhost:${port}`);
+    console.log(`Servidor corriendo en http://localhost:${port}`);
 });
+
+
+

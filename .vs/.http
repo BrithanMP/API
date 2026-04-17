@@ -1,0 +1,12 @@
+Get http://localhost:3000/api/books
+
+Get http://localhost:3000/api/books/2
+
+Get http://localhost:3000/api/books
+Content-Type: applications/json
+
+{
+    "tittle": "Harry Potter and the Sorcere's stone",
+    "author": "J.K. Rowling"
+}
+
