@@ -10,3 +10,14 @@ Content-Type: applications/json
     "author": "J.K. Rowling"
 }
 
+PUT http://localhost:3000/api/books/3
+Content-Type: application/json
+
+{
+"title": "harry potter and the chamber of secrets",
+"author": "J.K. Rowling" 
+}
+
+#################################
+
+DELETE http://localhost:3000/api/books/3

@@ -77,6 +77,11 @@ app.put('/api/books/:id', (req, res) => {
         });
     }
 
+        book.title = tittle;
+    book.author = author;
+
+    res.json(book);
+
 });
 
 app.get('/', (req, res) => {
@@ -87,5 +92,22 @@ app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
 });
 
+app.delete('/api/books/:id', (req,res) =>{
 
+    const id = parseInt(req.params.id);
+
+    const index = books.findIndex(b => b.id === id);
+
+    if (index === -1) {
+        return res.status(404).json({
+            message: 'NO Encontrado'
+        });
+    }
+
+    books.splice(index, 1);
+
+    res.json({
+        message: 'Eliminado'
+    });
+})
 
